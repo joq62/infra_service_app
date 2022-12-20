@@ -3,6 +3,7 @@ all:
 	rm -rf erl_cra*;
 	rm -rf rebar.lock;
 	rm -rf ebin;
+	rm -rf test_ebin;
 	rm -rf Mnesia.*;
 	rm -rf log_dir;
 	rm -rf proto*;
