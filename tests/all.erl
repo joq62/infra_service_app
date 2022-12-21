@@ -53,8 +53,18 @@ setup()->
     timer:sleep(2000),
     ok=file:make_dir(?ClusterDir),
     ok=application:set_env([{infra_service_app,[{cluster_spec,?ClusterSpec}]}]),
+
+    {ok,_}=resource_discovery_server:start(),
     ok=application:start(infra_service_app),
       
+    pong=db_etcd:ping(),
+    pong=nodelog:ping(),
+    pong=connect_server:ping(),
+    pong=appl_server:ping(),
+    pong=pod_server:ping(),
+    pong=oam:ping(),
+    pong=infra_service_server:ping(),
+
     io:format("Stop OK !!! ~p~n",[?FUNCTION_NAME]),
 
     ok.

@@ -33,8 +33,6 @@ init([]) ->
                      start=>{db_etcd_server,start,[]}},
 		  #{id=>nodelog,
 		    start=>{nodelog_server,start,[]}},
-		  #{id=>resource_discovery,
-		    start=>{resource_discovery_server,start,[]}},
 		  #{id=>connect,
 		    start=>{connect_server,start,[]}},
 		  #{id=>appl,

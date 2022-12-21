@@ -7,6 +7,9 @@ all:
 	rm -rf Mnesia.*;
 	rm -rf log_dir;
 	rm -rf proto*;
+	rm -rf log_dir prototype_c201;
+	rm -rf rebar.config;
+	cp tests/rebar.config_release rebar.config;
 	mkdir ebin;		
 	rebar3 compile;	
 	cp _build/default/lib/*/ebin/* ebin;
@@ -41,6 +44,8 @@ eunit:
 	rm -rf tests_ebin;
 	rm -rf rebar.lock;
 	rm -rf ebin;
+	rm -rf rebar.config;
+	cp tests/rebar.config_test rebar.config;
 #	tests 
 	mkdir tests_ebin;
 	erlc -I include -o tests_ebin tests/*.erl;
